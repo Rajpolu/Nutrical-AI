@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Camera, Play, Pause, RotateCcw, Target } from 'lucide-react';
+import { Camera, Play, Pause, RotateCcw, Target, Coffee } from 'lucide-react';
 import WorkoutCamera from '../components/WorkoutCamera';
 import ExerciseSelector from '../components/ExerciseSelector';
 import WorkoutStats from '../components/WorkoutStats';
@@ -32,6 +32,10 @@ const Index = () => {
     setReps(prev => prev + 1);
   };
 
+  const handleBuyMeACoffee = () => {
+    window.open('https://www.buymeacoffee.com/yourprofile', '_blank');
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
       {/* Header */}
@@ -48,25 +52,36 @@ const Index = () => {
               </div>
             </div>
             
-            {selectedExercise && (
-              <div className="flex items-center space-x-4">
-                <button
-                  onClick={isWorkoutActive ? handleStopWorkout : handleStartWorkout}
-                  className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-medium hover:from-green-600 hover:to-emerald-700 transition-all duration-200 shadow-lg"
-                >
-                  {isWorkoutActive ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
-                  <span>{isWorkoutActive ? 'Pause' : 'Start'}</span>
-                </button>
-                
-                <button
-                  onClick={handleResetWorkout}
-                  className="flex items-center space-x-2 px-4 py-3 bg-gray-700 text-white rounded-xl font-medium hover:bg-gray-600 transition-colors duration-200"
-                >
-                  <RotateCcw className="w-5 h-5" />
-                  <span>Reset</span>
-                </button>
-              </div>
-            )}
+            <div className="flex items-center space-x-4">
+              {/* Buy Me a Coffee Button */}
+              <button
+                onClick={handleBuyMeACoffee}
+                className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-xl font-medium hover:from-yellow-600 hover:to-orange-600 transition-all duration-200 shadow-lg"
+              >
+                <Coffee className="w-5 h-5" />
+                <span>Buy Me a Coffee</span>
+              </button>
+
+              {selectedExercise && (
+                <>
+                  <button
+                    onClick={isWorkoutActive ? handleStopWorkout : handleStartWorkout}
+                    className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-medium hover:from-green-600 hover:to-emerald-700 transition-all duration-200 shadow-lg"
+                  >
+                    {isWorkoutActive ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
+                    <span>{isWorkoutActive ? 'Pause' : 'Start'}</span>
+                  </button>
+                  
+                  <button
+                    onClick={handleResetWorkout}
+                    className="flex items-center space-x-2 px-4 py-3 bg-gray-700 text-white rounded-xl font-medium hover:bg-gray-600 transition-colors duration-200"
+                  >
+                    <RotateCcw className="w-5 h-5" />
+                    <span>Reset</span>
+                  </button>
+                </>
+              )}
+            </div>
           </div>
 
           {!selectedExercise ? (
