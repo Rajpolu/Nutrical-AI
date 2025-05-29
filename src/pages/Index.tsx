@@ -33,11 +33,11 @@ const Index = () => {
   };
 
   const handleBuyMeACoffee = () => {
-    window.open('https://www.buymeacoffee.com/yourprofile', '_blank');
+    window.open('https://buymeacoffee.com/programmia', '_blank');
   };
 
   const handleGitHub = () => {
-    window.open('https://github.com/yourusername/nutrical-ai', '_blank');
+    window.open('https://github.com/Rajpolu/Nutrical-AI.git', '_blank');
   };
 
   return (
