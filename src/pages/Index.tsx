@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Camera, Play, Pause, RotateCcw, Target, Coffee } from 'lucide-react';
+import { Camera, Play, Pause, RotateCcw, Target, Coffee, Github } from 'lucide-react';
 import WorkoutCamera from '../components/WorkoutCamera';
 import ExerciseSelector from '../components/ExerciseSelector';
 import WorkoutStats from '../components/WorkoutStats';
@@ -36,6 +36,10 @@ const Index = () => {
     window.open('https://www.buymeacoffee.com/yourprofile', '_blank');
   };
 
+  const handleGitHub = () => {
+    window.open('https://github.com/yourusername/nutrical-ai', '_blank');
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
       {/* Header */}
@@ -53,6 +57,15 @@ const Index = () => {
             </div>
             
             <div className="flex items-center space-x-4">
+              {/* GitHub Button */}
+              <button
+                onClick={handleGitHub}
+                className="flex items-center space-x-2 px-4 py-2 bg-gray-800 text-white rounded-xl font-medium hover:bg-gray-700 transition-all duration-200 shadow-lg"
+              >
+                <Github className="w-5 h-5" />
+                <span>GitHub</span>
+              </button>
+
               {/* Buy Me a Coffee Button */}
               <button
                 onClick={handleBuyMeACoffee}
